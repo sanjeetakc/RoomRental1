@@ -9,13 +9,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.roomrental.model.Data;
-import com.example.roomrental.model.UserAccountSettings;
 
 public class ListAdapter extends RecyclerView.Adapter {
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.room,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.room, parent, false);
         return new ListViewHolder(view);
     }
 
@@ -29,31 +28,37 @@ public class ListAdapter extends RecyclerView.Adapter {
         return Data.location.length;
 
     }
-    private class ListViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+
+    private class ListViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private TextView mItemText;
+        private TextView ownerNameTxt;
+        private TextView priceTxt;
+        private ImageView roomImage;
         private ImageView mItemImage;
-     public ListViewHolder(View itemView){
-     super(itemView);
-     mItemText = (TextView)itemView.findViewById(R.id.location);
-     mItemText =(TextView)itemView.findViewById(R.id.owner_name);
-     mItemText = (TextView)itemView.findViewById(R.id.price);
-     mItemImage = (ImageView) itemView.findViewById(R.id.room_image);
-     mItemImage = (ImageView) itemView.findViewById(R.id.user_profile);
-     itemView.setOnClickListener(this);
- }
- public void bindView (int position){
-     mItemText.setText(Data.location[position]);
-     mItemText.setText(Data.ownername[position]);
-     mItemText.setText(Data.price[position]);
-     mItemImage.setImageResource(Data.profile[position]);
-     mItemImage.setImageResource(Data.room_image[position]);
 
+        public ListViewHolder(View itemView) {
+            super(itemView);
+            mItemText = (TextView) itemView.findViewById(R.id.location);
+            ownerNameTxt = (TextView) itemView.findViewById(R.id.owner_name);
+            priceTxt = (TextView) itemView.findViewById(R.id.price);
+            mItemImage = (ImageView) itemView.findViewById(R.id.room_image);
+            roomImage = (ImageView) itemView.findViewById(R.id.user_profile);
+            itemView.setOnClickListener(this);
+        }
 
+        public void bindView(int position) {
+            mItemText.setText(Data.location[position]);
+            ownerNameTxt.setText(Data.ownername[position]);
 
- }
- public void onClick(View view){
+            //Text view accepts only string type so casted double to string
+            priceTxt.setText(String.valueOf(Data.price[position]));
+            mItemImage.setImageResource(Data.profile[position]);
+            roomImage.setImageResource(Data.room_image[position]);
+        }
 
- }
+        public void onClick(View view) {
+
+        }
 
     }
 }
