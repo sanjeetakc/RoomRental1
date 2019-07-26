@@ -1,6 +1,7 @@
 package com.example.roomrental;
 
 import android.app.ActionBar;
+import android.database.DataSetObserver;
 import android.graphics.ColorSpace;
 import android.graphics.ColorSpace.Model;
 import android.os.Bundle;
@@ -23,7 +24,14 @@ public class HomeFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_home,container,false);
+        View  view = inflater.inflate(R.layout.fragment_home,container,false);
+        RecyclerView recyclerView = (RecyclerView)view.findViewById(R.id.recycler_view);
+        ListAdapter listAdapter = new ListAdapter();
+        recyclerView.setAdapter(listAdapter);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(layoutManager);
+
+return view;
     }
 }
 
