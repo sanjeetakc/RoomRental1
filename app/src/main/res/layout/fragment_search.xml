@@ -3,6 +3,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/search_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="77dp"
+        android:background="@color/colorbackground"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" />
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="127dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="32dp"
+        android:layout_toRightOf="@+id/search_logo"
+        android:text="Search"
+        android:textColor="@color/colorsignupbackground"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/search_logo"
+        android:layout_width="46dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/search_toolbar"
+        android:layout_marginLeft="100dp"
+        android:layout_marginBottom="15dp"
+        app:srcCompat="@drawable/ic_search_black_24dp" />
 
 
     <SearchView
@@ -11,6 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         app:layout_constraintCircleRadius="50dp"
+        android:layout_below="@+id/search_toolbar"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"/>
 </RelativeLayout>
