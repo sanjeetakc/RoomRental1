@@ -22,7 +22,6 @@
         android:id="@+id/location"
         android:layout_width="132dp"
         android:layout_height="27dp"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="Location"
         android:textColor="@color/colorblack"
@@ -34,31 +33,12 @@
         android:id="@+id/owner_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="Ownername"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/location" />
 
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="|"
-        app:layout_constraintStart_toEndOf="@+id/owner_name"
-        app:layout_constraintTop_toBottomOf="@+id/location" />
 
-    <TextView
-        android:id="@+id/date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="1:00PM"
-        app:layout_constraintStart_toEndOf="@+id/textView11"
-        app:layout_constraintTop_toBottomOf="@+id/location" />
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/user_profile"
         android:layout_width="60dp"

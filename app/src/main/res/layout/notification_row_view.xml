@@ -1,0 +1,42 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/notification_design_logo"
+        android:layout_width="384dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/fui_transparent"
+        app:srcCompat="@drawable/notification_design" />
+
+    <TextView
+        android:id="@+id/notification_design_msg"
+        android:layout_width="294dp"
+        android:layout_height="31dp"
+        android:layout_alignBottom="@+id/notification_design_logo"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="17dp"
+        android:text="TextView"
+        android:textColor="@color/colorblack"
+        android:textSize="20dp" />
+
+    <ImageView
+        android:id="@+id/notification_design_profile"
+        android:layout_width="23dp"
+        android:layout_height="35dp"
+        android:layout_alignBottom="@+id/notification_design_logo"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
+        android:layout_marginRight="13dp"
+        android:layout_marginBottom="18dp"
+        android:layout_toLeftOf="@+id/notification_design_msg"
+        app:srcCompat="@drawable/notifcation_profile_man" />
+</RelativeLayout>
