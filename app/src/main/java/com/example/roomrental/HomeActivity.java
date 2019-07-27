@@ -1,18 +1,16 @@
 package com.example.roomrental;
 
-import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 
-import com.example.roomrental.Profile.ProfileActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class HomeActivity extends AppCompatActivity {
@@ -20,10 +18,20 @@ public class HomeActivity extends AppCompatActivity {
     //ImageButton imageButton;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+    private Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_activity);
+
+        toolbar = findViewById(R.id.toolbar);
+        if (toolbar != null) {
+            setSupportActionBar(toolbar);
+        } else {
+
+        }
+
         BottomNavigationView bottomNav = findViewById(R.id.nav_view);
         ImageButton imageButton = findViewById(R.id.user_detail);
         bottomNav.setOnNavigationItemSelectedListener(navListner);
@@ -35,7 +43,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new HomeFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
 
     }
 
@@ -44,7 +52,7 @@ public class HomeActivity extends AppCompatActivity {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                     Fragment selectedFragment = null;
-                    switch (menuItem.getItemId()){
+                    switch (menuItem.getItemId()) {
                         case R.id.nav_home:
                             selectedFragment = new HomeFragment();
                             break;
@@ -62,6 +70,7 @@ public class HomeActivity extends AppCompatActivity {
                             break;
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
+
                     return true;
                 }
             };
