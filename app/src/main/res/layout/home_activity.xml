@@ -45,10 +45,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
                 android:layout_toRightOf="@+id/home_logo"
+                android:layout_toLeftOf="@+id/user_detail"
                 android:paddingLeft="0dp"
+                android:paddingRight="0dp"
                 android:text="Room Rental"
                 android:textColor="@color/colorsignupbackground"
-                android:textSize="20dp" />
+                android:textSize="20sp" />
 
             <ImageButton
                 android:id="@+id/user_detail"
