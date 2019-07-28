@@ -25,7 +25,6 @@ public class SearchFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_search, container, false);
-
         /**
          * Demo Search operation
          * Change as you like
@@ -33,27 +32,44 @@ public class SearchFragment extends Fragment {
          * Don't know why but its not working, maybe searchView is underConstruction !!
          */
         msearchView = view.findViewById(R.id.search_view);
+//        msearchView.setIconified(false);
         final Domain domain = new Domain();
-        msearchView.setOnSearchClickListener(new View.OnClickListener() {
+        final TextView text = view.findViewById(R.id.textView3);
+        msearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
-            public void onClick(View view) {
+            public boolean onQueryTextSubmit(String s) {
+                text.setText("");
+
                 String locationSearchText = msearchView.getQuery().toString();
 
                 ArrayList<Data> roomDatas = domain.locationToRoomData.get(locationSearchText.toLowerCase());
+                Log.i("Data_Information", "Is RoomData null? "+((roomDatas == null)?"Yes":"No"));
 
                 if (roomDatas != null) {
                     for (Data data : roomDatas) {
-                        Log.i("Data Information", data.toString());
+                        if(data!=null) {
+                            //use the data anywhere you want
+
+                            Log.i("Data_Information", data.toString());
 
 //                    int room_image = data.getRoom_image();
 //                    int profile = data.getProfile();
 //                    String ownerName = data.getOwnerName();
 //                    String location = data.getLocation();
 //                    double price = data.getPrice();
+                        } else {
+                            Log.i("Data_Information", "No room at "+locationSearchText);
+                        }
                     }
                 } else {
-                    Log.i("Data Information", "No search results");
+                    Log.i("Data_Information", "No search results");
                 }
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                return false;
             }
         });
 
