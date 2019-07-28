@@ -1,4 +1,4 @@
-package com.example.roomrental;
+package com.example.roomrental.fragments;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -18,10 +18,11 @@ import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.roomrental.R;
+import com.example.roomrental.adapters.GridImgAdapter;
+import com.example.roomrental.adapters.NextActivity;
 import com.example.roomrental.utils.FilePaths;
 import com.example.roomrental.utils.FileSearch;
-import com.example.roomrental.utils.GridImgAdapter;
-import com.example.roomrental.utils.NextActivity;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
@@ -43,10 +44,11 @@ public class GalleryFragment extends Fragment {
     private ArrayList<String> directories;
     private String mAppend = "file:/";
     private String mSelectedImage;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view= inflater.inflate(R.layout.fragment_gallery, container, false);
+        View view = inflater.inflate(R.layout.fragment_gallery, container, false);
         galleryImage = (ImageView) view.findViewById(R.id.galleryImageView);
         gridView = (GridView) view.findViewById(R.id.gridView);
         directorySpinner = (Spinner) view.findViewById(R.id.spinnerDirectory);
@@ -77,22 +79,22 @@ public class GalleryFragment extends Fragment {
         init();
         return view;
     }
-    private void init(){
-        FilePaths filePaths = new FilePaths();
+
+    private void init() {
 
         //check for other folders indide "/storage/emulated/0/pictures"
-        if(FileSearch.getDirectoryPaths(filePaths.PICTURE) != null){
-            directories = FileSearch.getDirectoryPaths(filePaths.PICTURE);
+        if (FileSearch.getDirectoryPaths(FilePaths.PICTURE) != null) {
+            directories = FileSearch.getDirectoryPaths(FilePaths.PICTURE);
         }
         ArrayList<String> directoryNames = new ArrayList<>();
-        for(int i = 0; i < directories.size(); i++){
+        for (int i = 0; i < directories.size(); i++) {
 
             int index = directories.get(i).lastIndexOf("/");
             String string = directories.get(i).substring(index);
             directoryNames.add(string);
         }
 
-        directories.add(filePaths.CAMERA);
+        directories.add(FilePaths.CAMERA);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
                 android.R.layout.simple_spinner_item, directories);
@@ -113,13 +115,14 @@ public class GalleryFragment extends Fragment {
             }
         });
     }
-    private void setupGridView(String selectedDirectory){
+
+    private void setupGridView(String selectedDirectory) {
         Log.d(TAG, "setupGridView: directory chosen: " + selectedDirectory);
         final ArrayList<String> imgURLs = FileSearch.getFilePath(selectedDirectory);
 
         //set the grid column width
         int gridWidth = getResources().getDisplayMetrics().widthPixels;
-        int imageWidth = gridWidth/NUM_GRID_COLUMNS;
+        int imageWidth = gridWidth / NUM_GRID_COLUMNS;
         gridView.setColumnWidth(imageWidth);
 
         //use the grid adapter to adapter the images to gridview
@@ -141,11 +144,11 @@ public class GalleryFragment extends Fragment {
     }
 
 
-    private void setImage(String imgURL, ImageView image, String append){
+    private void setImage(String imgURL, ImageView image, String append) {
         Log.d(TAG, "setImage: setting image");
 
 
-       ImageLoader imageLoader = ImageLoader.getInstance();
+        ImageLoader imageLoader = ImageLoader.getInstance();
 
         imageLoader.displayImage(append + imgURL, image, new ImageLoadingListener() {
             @Override

@@ -1,4 +1,4 @@
-package com.example.roomrental;
+package com.example.roomrental.adapters;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -8,7 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.roomrental.model.Data;
+import com.example.roomrental.R;
+import com.example.roomrental.model.Domain;
 
 public class ListAdapter extends RecyclerView.Adapter {
     @NonNull
@@ -25,7 +26,7 @@ public class ListAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
-        return Data.location.length;
+        return Domain.location.length;
 
     }
 
@@ -47,13 +48,13 @@ public class ListAdapter extends RecyclerView.Adapter {
         }
 
         public void bindView(int position) {
-            mItemText.setText(Data.location[position]);
-            ownerNameTxt.setText(Data.ownername[position]);
+            mItemText.setText(Domain.location[position]);
+            ownerNameTxt.setText(Domain.ownername[position]);
 
             //Text view accepts only string type so casted double to string
-            priceTxt.setText(String.valueOf(Data.price[position]));
-            mItemImage.setImageResource(Data.profile[position]);
-            roomImage.setImageResource(Data.room_image[position]);
+            priceTxt.setText(String.valueOf(Domain.price[position]));
+            mItemImage.setImageResource(Domain.profile[position]);
+            roomImage.setImageResource(Domain.room_image[position]);
         }
 
         public void onClick(View view) {
