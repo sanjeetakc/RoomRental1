@@ -15,19 +15,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".LoginActivity"
+            android:name=".activities.LoginActivity"
             android:theme="@style/CustomTheme" />
-        <activity android:name=".HomeActivity" />
-        <activity android:name=".Forget" ></activity>
-        <activity android:name=".Create" />
-        <activity android:name=".Upload"/>
-        <activity android:name=".Setting"/>
-        <activity android:name=".Userprofile"/>
+        <activity android:name=".activities.HomeActivity" />
+        <activity android:name=".activities.Forget" ></activity>
+        <activity android:name=".activities.Create" />
+        <activity android:name=".fragment.Upload"/>
+        <activity android:name=".activities.Setting"/>
+        <activity android:name=".Profile.Userprofile"/>
 
         <activity android:name=".utils.NextActivity"/>
         <!-- <activity android:name=".MainActivity"/> -->
         <activity
-            android:name=".SplashScreen"
+            android:name=".activities.SplashScreen"
             android:theme="@style/CustomTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
