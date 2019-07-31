@@ -36,8 +36,10 @@
         android:layout_below="@+id/payment"
         android:layout_marginLeft="25dp"
         android:layout_marginTop="10dp"
-        android:text="Profile-Details "
+        android:text="Profile-Setting "
         android:textColor="@color/colorblack"
         android:textSize="20dp"
         />
+
+
 </RelativeLayout>

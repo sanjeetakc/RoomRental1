@@ -1,4 +1,4 @@
-package com.example.roomrental.adapters;
+package com.example.roomrental.model;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;

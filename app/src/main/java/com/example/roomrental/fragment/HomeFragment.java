@@ -16,7 +16,7 @@ import android.view.ViewGroup;
 
 //import com.example.roomrental.rooms.RoomRecyclerAdapter;
 import com.example.roomrental.R;
-import com.example.roomrental.adapters.ListAdapter;
+import com.example.roomrental.model.ListAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;

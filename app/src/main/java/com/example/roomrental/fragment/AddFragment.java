@@ -5,12 +5,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.roomrental.activities.HomeActivity;
 import com.example.roomrental.fragment.Upload;
 import com.example.roomrental.R;
 
@@ -32,6 +34,31 @@ public class AddFragment extends Fragment {
             }
         });
         return view;
+    }
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(false);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        try {
+            ((HomeActivity) getActivity()).getSupportActionBar().hide();
+        } catch (Exception e) {
+            Log.i("Erooor", "Cannot hide");
+        }
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        try {
+            ((HomeActivity) getActivity()).getSupportActionBar().show();
+        } catch (Exception e) {
+            Log.i("Erooor", "Cannot show");
+        }
     }
 }
 

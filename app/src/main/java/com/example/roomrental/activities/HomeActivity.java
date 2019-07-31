@@ -81,5 +81,8 @@ public class HomeActivity extends AppCompatActivity {
                     return true;
                 }
             };
+    //public void onBackPressed() {
+      //  moveTaskToBack(true);
+    //}
 
 }
